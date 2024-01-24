@@ -1,8 +1,6 @@
-import requests,re
-from mahdix import *
-from concurrent.futures import ThreadPoolExecutor
+import requests,re,random
 
-clear()
+from concurrent.futures import ThreadPoolExecutor
 
 from urllib.parse import parse_qs
 
@@ -10,10 +8,10 @@ from urllib.parse import parse_qs
 try:
     file=open('twitter_cookes.txt','r').read().splitlines()
 except:
-    p('File Not Fount');exit()
+    print('File Not Fount');exit()
 
 
-cooki=rc(file)
+cooki=random.choice(file)
 
 
 # cooki='personalization_id="v1_sUAC3o+qvxM+zPRuyWa3QA==";lang=en;att=1-frUAoDnsqF8IGKqWl4FZzIOcgHdhtw8fHyxsT7QI;auth_token=2d68ccde77528c26463b9f9cbe1f0bebd6c78dea;ct0=a09c0139e2b163c1285e16b63b23b67f4f543ad7dc674bb34956a74923550bc7fe933e7be2d95fad78c517b8a738acb4b599e913aead39907b5b78990b1607aa43a2999ef0ea0afc83041428b7b26676;gt=1748065858096922678;_ga=GA1.2.1089818166.1705606352;kdt=Y7G0SNho8dSdeb7MvzDIOgXQarn1RRAwb4DeALJZ;_gid=GA1.2.1402223699.1705606352;twid=u%3D1745514902863929344;guest_id=v1%3A170560635269511367;guest_id_ads=v1%3A170560635269511367;_twitter_sess=BAh7CSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%250ASGFzaHsABjoKQHVzZWR7ADoPY3JlYXRlZF9hdGwrCHWcDx6NAToMY3NyZl9p%250AZCIlMjIzZjAwNmNiZWJiMjE0MWU3Y2E2YTQyMzk4MDRjYzM6B2lkIiU3OGZh%250AYmI2ZTVlOWNhZjNiODM5ZmUwOWFjMTgxMzIwNw%253D%253D--3873fa7740a9701f16f8d47a39f22614aa545339;guest_id_marketing=v1%3A170560635269511367'
@@ -233,7 +231,7 @@ def search_Top(cookies,chatagory,reaction_limite,viwes_limite,comment_limite,nb_
     'variables': '{"rawQuery":"%s","count":200,"querySource":"recent_search_click","product":"Top"}'%(chatagory),
     'features': '{"responsive_web_graphql_exclude_directive_enabled":true,"verified_phone_label_enabled":false,"creator_subscriptions_tweet_preview_api_enabled":true,"responsive_web_graphql_timeline_navigation_enabled":true,"responsive_web_graphql_skip_user_profile_image_extensions_enabled":false,"c9s_tweet_anatomy_moderator_badge_enabled":true,"tweetypie_unmention_optimization_enabled":true,"responsive_web_edit_tweet_api_enabled":true,"graphql_is_translatable_rweb_tweet_is_translatable_enabled":true,"view_counts_everywhere_api_enabled":true,"longform_notetweets_consumption_enabled":true,"responsive_web_twitter_article_tweet_consumption_enabled":false,"tweet_awards_web_tipping_enabled":false,"freedom_of_speech_not_reach_fetch_enabled":true,"standardized_nudges_misinfo":true,"tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled":true,"rweb_video_timestamps_enabled":true,"longform_notetweets_rich_text_read_enabled":true,"longform_notetweets_inline_media_enabled":true,"responsive_web_media_download_video_enabled":false,"responsive_web_enhance_cards_enabled":false}',
     }
-    response = rqg('https://twitter.com/i/api/graphql/HgiQ8U_E6g-HE_I6Pp_2UA/SearchTimeline',
+    response = requests.get('https://twitter.com/i/api/graphql/HgiQ8U_E6g-HE_I6Pp_2UA/SearchTimeline',
         params=params,cookies=cookies,headers=headers, ).text
     loping_serch(response,cookies,reaction_limite,viwes_limite,comment_limite,nb_tweets,chatagory)
     
