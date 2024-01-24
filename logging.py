@@ -1,11 +1,11 @@
 from selenium import webdriver
+from time import sleep
 from selenium.webdriver.common.by import By
-from mahdix import *
-
+\
 try:
     file=open('is_pass_file.txt','r').read().splitlines()
 except:
-    p('File Not Fount');exit()
+    print('File Not Fount');exit()
 
 options = webdriver.ChromeOptions()
 options.add_experimental_option("detach",True)
@@ -13,7 +13,7 @@ driver = webdriver.Chrome(options=options)
 for id_pas in file:
     user_name=id_pas.split('|')[0]
     password=id_pas.split('|')[1]
-    clear()
+
     driver.get("https://twitter.com/i/flow/login")
     sleep(5)
     # Username login
@@ -27,7 +27,7 @@ for id_pas in file:
     button_xpath = '//div[@data-testid="LoginForm_Login_Button"]'
     login_button = driver.find_element(By.XPATH, button_xpath)
     login_button.click()
-    clear()
+
     sleep(2)
 
 
@@ -37,7 +37,7 @@ for id_pas in file:
     if 'ct0' in formatted_cookies:
         print(formatted_cookies)
         open('twitter_cookes.txt','a').write(f'{formatted_cookies.replace(" ","")}\n')
-        print(mahdilinx())
+        
 
     driver.delete_all_cookies()
 driver.quit()
