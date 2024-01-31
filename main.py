@@ -1,5 +1,13 @@
-from mahdix import *
-clear()
+##------------------------------------#
+__DEVOLPER__ = '___MAHDI HASAN SHUVO___'
+__FACEBOOK__ =' MAHDI HASAN'
+__DEVOLPER__ = '___MAHDI HASAN SHUVO___'
+__FACEBOOK__ =  'MAHDI HASAN'
+___V___= 1
+__WHATSAPP___=+8801616406924
+#-----------------------------------------------------------#
+# from mahdix import *
+# clear()
 import threading
 import requests,re,random
 import json,os
@@ -237,17 +245,18 @@ reaction_limite=5
 viwes_limite=5
 comment_limite=3
 keywords=["munawar0018","therantinggola","therantinggola","therantinggola","therantinggola"]
-type_search='x'
+type_search='profile'
 
 
 def cookes(x):
     global cookies
-    cooki=random.choice(file)
+    data_list = json.loads(file)
+    cookes = [entry['cookes'] for entry in data_list]
+    cooki=random.choice(cookes)
     parsed_cookies = parse_qs(cooki.replace(' ',''), separator=';')
     cookies= {key: value[0] for key, value in parsed_cookies.items()}
-    print(cookies)
 @cookes
-
+def c():pass
 def main(type_search, keywords, reaction_limite,viwes_limite,comment_limite,nb_tweets):
     tweets = []
     for keyword in keywords:
@@ -256,13 +265,25 @@ def main(type_search, keywords, reaction_limite,viwes_limite,comment_limite,nb_t
                 try:
                     tweet=profile_scrept(keyword,cookies,reaction_limite,viwes_limite,comment_limite,nb_tweets)
                     #print(tweet)
-                    tweets.extend(tweet)
+                    new_data = [{
+                        "type": "username",
+                        "keyword": keyword,
+                        "tweets": []
+                    }]
+                    new_data[0]["tweets"].extend(tweet)
+                    tweets.extend(new_data)
                 except:pass
                     #return data_profile
             else:
                 try:
                     tweet=search_Top(cookies,keyword,reaction_limite,viwes_limite,comment_limite,nb_tweets)
-                    tweets.extend(tweet)
+                    new_data = [{
+                        "type": "topic",
+                        "keyword": keyword,
+                        "tweets": []
+                    }]
+                    new_data[0]["tweets"].extend(tweet)
+                    tweets.extend(new_data)
                 except:pass
             #tweets += [tweet]
         # except Exception as e :print(e)
