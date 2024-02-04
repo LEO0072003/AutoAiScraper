@@ -38,9 +38,7 @@ def get_profile_uid(cookies,user_name,headers):
         except : return "invaid"
 def felteringx(post_url,reaction_numbr,connnt_num,chaption,viwes,reaction_limite,viwes_limite,comment_limite,date_post):
     try:
-        #print(post_url)
         if int(reaction_numbr)>=int(reaction_limite) and int(connnt_num) >= int(comment_limite) and int(viwes) >= int(viwes_limite):  
-            # print(post_url)
             data_profile.append({"post_url" : post_url,
         "date_of_post": date_post,
         "tweet": chaption,
@@ -62,7 +60,14 @@ def scretpt(loads_data,reaction_limite,viwes_limite,comment_limite):
                 reaction_numbr=data["content"]["itemContent"]["tweet_results"]["result"]["legacy"]["favorite_count"]
                 viwes=data["content"]["itemContent"]["tweet_results"]["result"]["views"]["count"]
                 post_url=data["content"]["itemContent"]["tweet_results"]["result"]["legacy"]["entities"]["media"][0]["expanded_url"]
-                felteringx(post_url,reaction_numbr,connnt_num,chaption,viwes,reaction_limite,viwes_limite,comment_limite,date_post.replace('+0000',''))
+                if int(reaction_numbr)>=int(reaction_limite) and int(connnt_num) >= int(comment_limite) and int(viwes) >= int(viwes_limite):
+                    data_profile.append({"post_url" : post_url,
+        "date_of_post": date_post,
+        "tweet": chaption,
+        "likes":reaction_numbr,
+        "comments": connnt_num,
+        "views":viwes})
+                #felteringx(post_url,reaction_numbr,connnt_num,chaption,viwes,reaction_limite,viwes_limite,comment_limite,date_post.replace('+0000',''))
                 #felteringx(post_url,reaction_numbr,connnt_num,chaption,viwes,reaction_limite,viwes_limite,comment_limite,date_post)
             except:pass          
             #data_profile.append([post_url,reaction_numbr,connnt_num,chaption,viwes])
@@ -298,6 +303,8 @@ def main(type_search, keywords, reaction_limite,viwes_limite,comment_limite,nb_t
             if 'profile' in str(type_search).lower():
                 try:
                     sleep(.5)
+                    global lop_time
+                    lop_time=0
                     tweet=screpeing_profile_post(keyword,cookies,reaction_limite,viwes_limite,comment_limite,nb_tweets)
                     #print(tweet)
                     new_data = [{
