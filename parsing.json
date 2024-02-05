@@ -1,0 +1,241 @@
+{
+    "entryId": "toptabsrpusermodule-1754425846233300992",
+    "sortIndex": "1754425846233300992",
+    "content": {
+        "entryType": "TimelineTimelineModule",
+        "__typename": "TimelineTimelineModule",
+        "items": [
+            {
+                "entryId": "toptabsrpusermodule-1754425846233300992-user-1080033842642239488",
+                "item": {
+                    "itemContent": {
+                        "itemType": "TimelineUser",
+                        "__typename": "TimelineUser",
+                        "user_results": {
+                            "result": {
+                                "__typename": "User",
+                                "id": "VXNlcjoxMDgwMDMzODQyNjQyMjM5NDg4",
+                                "rest_id": "1080033842642239488",
+                                "affiliates_highlighted_label": {},
+                                "has_graduated_access": true,
+                                "is_blue_verified": false,
+                                "profile_image_shape": "Circle",
+                                "legacy": {
+                                    "can_dm": false,
+                                    "can_media_tag": true,
+                                    "created_at": "Tue Jan 01 09:31:48 +0000 2019",
+                                    "default_profile": true,
+                                    "default_profile_image": false,
+                                    "description": "Director(Human Resources) at India's largest commercial organisation-IndianOil.",
+                                    "entities": {
+                                        "description": {
+                                            "urls": []
+                                        },
+                                        "url": {
+                                            "urls": [
+                                                {
+                                                    "display_url": "iocl.com",
+                                                    "expanded_url": "http://www.iocl.com",
+                                                    "url": "https://t.co/Jg5Vt4GZGp",
+                                                    "indices": [
+                                                        0,
+                                                        23
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "fast_followers_count": 0,
+                                    "favourites_count": 1092,
+                                    "followers_count": 15576,
+                                    "friends_count": 16,
+                                    "has_custom_timelines": false,
+                                    "is_translator": false,
+                                    "listed_count": 11,
+                                    "location": "New Delhi, India ",
+                                    "media_count": 399,
+                                    "name": "Director (HR), IndianOil",
+                                    "normal_followers_count": 15576,
+                                    "pinned_tweet_ids_str": [],
+                                    "possibly_sensitive": false,
+                                    "profile_image_url_https": "https://pbs.twimg.com/profile_images/1653737767422279681/ewijAoNQ_normal.jpg",
+                                    "profile_interstitial_type": "",
+                                    "screen_name": "DirHR_iocl",
+                                    "statuses_count": 936,
+                                    "translator_type": "none",
+                                    "url": "https://t.co/Jg5Vt4GZGp",
+                                    "verified": false,
+                                    "want_retweets": false,
+                                    "withheld_in_countries": []
+                                }
+                            }
+                        },
+                        "userDisplayType": "UserDetailed"
+                    },
+                    "clientEventInfo": {
+                        "component": "user_module",
+                        "element": "user",
+                        "details": {
+                            "timelinesDetails": {
+                                "controllerData": "DAACDAAFDAABDAACCgABAAAAAAAAAAAKAAJ0W1MAEPKTuwsAAwAAAARJT0NMCgAFA4ol2VO/7L8IAAYAAAASCgAH6f/3yKXjqvkAAAAAAA=="
+                            }
+                        }
+                    }
+                }
+            },
+            {
+                "entryId": "toptabsrpusermodule-1754425846233300992-user-760407290331607040",
+                "item": {
+                    "itemContent": {
+                        "itemType": "TimelineUser",
+                        "__typename": "TimelineUser",
+                        "user_results": {
+                            "result": {
+                                "__typename": "User",
+                                "id": "VXNlcjo3NjA0MDcyOTAzMzE2MDcwNDA=",
+                                "rest_id": "760407290331607040",
+                                "affiliates_highlighted_label": {},
+                                "has_graduated_access": true,
+                                "is_blue_verified": true,
+                                "profile_image_shape": "Circle",
+                                "legacy": {
+                                    "can_dm": false,
+                                    "can_media_tag": true,
+                                    "created_at": "Tue Aug 02 09:30:00 +0000 2016",
+                                    "default_profile": true,
+                                    "default_profile_image": false,
+                                    "description": "Head of one of India's largest organisations. Transforming Lives.",
+                                    "entities": {
+                                        "description": {
+                                            "urls": []
+                                        }
+                                    },
+                                    "fast_followers_count": 0,
+                                    "favourites_count": 349,
+                                    "followers_count": 31747,
+                                    "friends_count": 56,
+                                    "has_custom_timelines": false,
+                                    "is_translator": false,
+                                    "listed_count": 23,
+                                    "location": "",
+                                    "media_count": 584,
+                                    "name": "ChairmanIOC",
+                                    "normal_followers_count": 31747,
+                                    "pinned_tweet_ids_str": [],
+                                    "possibly_sensitive": false,
+                                    "profile_banner_url": "https://pbs.twimg.com/profile_banners/760407290331607040/1659370689",
+                                    "profile_image_url_https": "https://pbs.twimg.com/profile_images/1613438805771714562/F_s5KZHB_normal.jpg",
+                                    "profile_interstitial_type": "",
+                                    "screen_name": "ChairmanIOCL",
+                                    "statuses_count": 954,
+                                    "translator_type": "none",
+                                    "verified": false,
+                                    "want_retweets": false,
+                                    "withheld_in_countries": []
+                                },
+                                "professional": {
+                                    "rest_id": "1488014622837858309",
+                                    "professional_type": "Business",
+                                    "category": []
+                                }
+                            }
+                        },
+                        "userDisplayType": "UserDetailed"
+                    },
+                    "clientEventInfo": {
+                        "component": "user_module",
+                        "element": "user",
+                        "details": {
+                            "timelinesDetails": {
+                                "controllerData": "DAACDAAFDAABDAACCgABAAAAAAAAAAAKAAJ0W1MAEPKTuwsAAwAAAARJT0NMCgAFA4ol2VO/7L8IAAYAAAASCgAH6f/3yKXjqvkAAAAAAA=="
+                            }
+                        }
+                    }
+                }
+            },
+            {
+                "entryId": "toptabsrpusermodule-1754425846233300992-user-1023186699919208453",
+                "item": {
+                    "itemContent": {
+                        "itemType": "TimelineUser",
+                        "__typename": "TimelineUser",
+                        "user_results": {
+                            "result": {
+                                "__typename": "User",
+                                "id": "VXNlcjoxMDIzMTg2Njk5OTE5MjA4NDUz",
+                                "rest_id": "1023186699919208453",
+                                "affiliates_highlighted_label": {},
+                                "has_graduated_access": true,
+                                "is_blue_verified": true,
+                                "profile_image_shape": "Circle",
+                                "legacy": {
+                                    "can_dm": false,
+                                    "can_media_tag": true,
+                                    "created_at": "Sat Jul 28 12:41:33 +0000 2018",
+                                    "default_profile": true,
+                                    "default_profile_image": false,
+                                    "description": "",
+                                    "entities": {
+                                        "description": {
+                                            "urls": []
+                                        }
+                                    },
+                                    "fast_followers_count": 0,
+                                    "favourites_count": 202,
+                                    "followers_count": 14362,
+                                    "friends_count": 33,
+                                    "has_custom_timelines": false,
+                                    "is_translator": false,
+                                    "listed_count": 9,
+                                    "location": "Bandra East, Mumbai",
+                                    "media_count": 422,
+                                    "name": "Director (Marketing), IndianOil",
+                                    "normal_followers_count": 14362,
+                                    "pinned_tweet_ids_str": [],
+                                    "possibly_sensitive": false,
+                                    "profile_banner_url": "https://pbs.twimg.com/profile_banners/1023186699919208453/1659372538",
+                                    "profile_image_url_https": "https://pbs.twimg.com/profile_images/1554146879864471552/_PGmN6Tb_normal.jpg",
+                                    "profile_interstitial_type": "",
+                                    "screen_name": "DirMktg_iocl",
+                                    "statuses_count": 748,
+                                    "translator_type": "none",
+                                    "verified": false,
+                                    "want_retweets": false,
+                                    "withheld_in_countries": []
+                                }
+                            }
+                        },
+                        "userDisplayType": "UserDetailed"
+                    },
+                    "clientEventInfo": {
+                        "component": "user_module",
+                        "element": "user",
+                        "details": {
+                            "timelinesDetails": {
+                                "controllerData": "DAACDAAFDAABDAACCgABAAAAAAAAAAAKAAJ0W1MAEPKTuwsAAwAAAARJT0NMCgAFA4ol2VO/7L8IAAYAAAASCgAH6f/3yKXjqvkAAAAAAA=="
+                            }
+                        }
+                    }
+                }
+            }
+        ],
+        "displayType": "Vertical",
+        "header": {
+            "displayType": "Classic",
+            "text": "People",
+            "sticky": true
+        },
+        "footer": {
+            "displayType": "Classic",
+            "text": "View all",
+            "landingUrl": {
+                "url": "twitter://search?query=IOCL&src=recent_search_click&type=users",
+                "urlType": "DeepLink"
+            }
+        },
+        "clientEventInfo": {
+            "component": "user_module",
+            "element": "module"
+        }
+    }
+}

@@ -1,13 +1,3 @@
-##------------------------------------#
-__DEVOLPER__ = '___MAHDI HASAN SHUVO___'
-__FACEBOOK__ =' MAHDI HASAN'
-__DEVOLPER__ = '___MAHDI HASAN SHUVO___'
-__FACEBOOK__ =  'MAHDI HASAN'
-___V___= 1
-__WHATSAPP___=+8801616406924
-#-----------------------------------------------------------#
-# from mahdix import *
-# clear()
 import threading
 from time import sleep
 import requests,re,random
@@ -15,7 +5,7 @@ import json,os
 from urllib.parse import parse_qs
 
 try:
-    file=open('cookes.json','r',encoding='utf-8').read()
+    coolies_file=open('cookes.json','r',encoding='utf-8').read()
 except:
     print('File Not Fount');exit()
 
@@ -34,11 +24,12 @@ def get_profile_uid(cookies,user_name,headers):
                 params=params,cookies=cookies,headers=headers)
             data=(response.json())
             rest_id = data['data']['user_result_by_screen_name']['result']['rest_id']
-            return rest_id 
+            return rest_id
         except : return "invaid"
+
 def felteringx(post_url,reaction_numbr,connnt_num,chaption,viwes,reaction_limite,viwes_limite,comment_limite,date_post):
     try:
-        if int(reaction_numbr)>=int(reaction_limite) and int(connnt_num) >= int(comment_limite) and int(viwes) >= int(viwes_limite):  
+        if int(reaction_numbr)>=int(reaction_limite) and int(connnt_num) >= int(comment_limite) and int(viwes) >= int(viwes_limite):
             data_profile.append({"post_url" : post_url,
         "date_of_post": date_post,
         "tweet": chaption,
@@ -46,6 +37,7 @@ def felteringx(post_url,reaction_numbr,connnt_num,chaption,viwes,reaction_limite
         "comments": connnt_num,
         "views":viwes})
     except:pass
+
 def scretpt(loads_data,reaction_limite,viwes_limite,comment_limite):
     r"""
     This function parsing All data from the Responce or Inputed Text
@@ -69,10 +61,9 @@ def scretpt(loads_data,reaction_limite,viwes_limite,comment_limite):
         "views":viwes})
                 #felteringx(post_url,reaction_numbr,connnt_num,chaption,viwes,reaction_limite,viwes_limite,comment_limite,date_post.replace('+0000',''))
                 #felteringx(post_url,reaction_numbr,connnt_num,chaption,viwes,reaction_limite,viwes_limite,comment_limite,date_post)
-            except:pass          
+            except:pass
             #data_profile.append([post_url,reaction_numbr,connnt_num,chaption,viwes])
-    except Exception as e:print(e);pass
-
+    except Exception as e:print("Ecxeption:",e);pass
 
 def loping(rest_id,user_name,tweet_text,cookies,reaction_limite,viwes_limite,comment_limite,nb_tweets,headers):
     global messag,lop_time
@@ -104,7 +95,7 @@ def loping(rest_id,user_name,tweet_text,cookies,reaction_limite,viwes_limite,com
         if response.status_code >=400:
             het_coookes(user_name,cookies,reaction_limite,viwes_limite,comment_limite,nb_tweets)
     except Exception as messag: het_coookes(user_name,cookies,reaction_limite,viwes_limite,comment_limite,nb_tweets)
-    
+
 def screpeing_profile_post(user_name,cookies,reaction_limite,viwes_limite,comment_limite,nb_tweets):  #seach fast page and get data
     try:
         headers = {'authority': 'twitter.com',
@@ -126,23 +117,24 @@ def screpeing_profile_post(user_name,cookies,reaction_limite,viwes_limite,commen
             'variables': '{"userId":"%s","count":20,"includePromotedContent":true,"withQuickPromoteEligibilityTweetFields":true,"withVoice":true,"withV2Timeline":true}'%(rest_id),
             'features': '{"responsive_web_graphql_exclude_directive_enabled":true,"verified_phone_label_enabled":false,"creator_subscriptions_tweet_preview_api_enabled":true,"responsive_web_graphql_timeline_navigation_enabled":true,"responsive_web_graphql_skip_user_profile_image_extensions_enabled":false,"c9s_tweet_anatomy_moderator_badge_enabled":true,"tweetypie_unmention_optimization_enabled":true,"responsive_web_edit_tweet_api_enabled":true,"graphql_is_translatable_rweb_tweet_is_translatable_enabled":true,"view_counts_everywhere_api_enabled":true,"longform_notetweets_consumption_enabled":true,"responsive_web_twitter_article_tweet_consumption_enabled":false,"tweet_awards_web_tipping_enabled":false,"freedom_of_speech_not_reach_fetch_enabled":true,"standardized_nudges_misinfo":true,"tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled":true,"rweb_video_timestamps_enabled":true,"longform_notetweets_rich_text_read_enabled":true,"longform_notetweets_inline_media_enabled":true,"responsive_web_media_download_video_enabled":false,"responsive_web_enhance_cards_enabled":false}',}
             tweet_text = requests.get('https://twitter.com/i/api/graphql/NBWKw7od2So5qClZpLyQ0w/UserTweets',params=params,cookies=cookies,headers=headers)
-            if tweet_text.status_code==200: 
+            if tweet_text.status_code==200:
                 thread1 = threading.Thread(target=loping, args=(rest_id,user_name,tweet_text,cookies,reaction_limite,viwes_limite,comment_limite,nb_tweets,headers))
                 thread1.start()
                 thread1.join()
-            if tweet_text.status_code>=400:
+            elif tweet_text.status_code>=400:
                 screpeing_profile_post(user_name,cookies,reaction_limite,viwes_limite,comment_limite,nb_tweets)
             if "Done" in messag:
                 return data_profile
             else:
                 return  "Something Is Wrong Or Invaid Cookes"
-    except Exception as e: return e 
+    except Exception as e: return e
+
 def het_coookes(user_name,cookies,reaction_limite,viwes_limite,comment_limite,nb_tweets):
     r"""
     If gets any error Change a new cookes and send all data as new on searching function
     """
     formatted_cookies = ";".join([f"{cookie['name']}={cookie['value']}" for cookie in cookies])
-    data_list = json.loads(file)
+    data_list = json.loads(coolies_file)
     cookes = [entry['cookes'] for entry in data_list]
     cookes.remove(formatted_cookies)
     cooki=random.choice(cookes)
@@ -150,26 +142,6 @@ def het_coookes(user_name,cookies,reaction_limite,viwes_limite,comment_limite,nb
     cookiesx= {key: value[0] for key, value in parsed_cookies.items()}
     screpeing_profile_post(user_name,cookiesx,reaction_limite,viwes_limite,comment_limite,nb_tweets)
 
-# return screpeing_profile_post(user_name,cookies,reaction_limite,viwes_limite,comment_limite,nb_tweets)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#================================================================================================================================
-#def search_Top(cookies,chatagory,reaction_limite,viwes_limite,comment_limite,nb_tweets):# This function for scrap Data from the serach by name 
 search_data=[]
 def felteringx(post_url,reaction_numbr,connnt_num,chaption,viwes,reaction_limite,viwes_limite,comment_limite,date_post):
     r"""
@@ -177,7 +149,7 @@ def felteringx(post_url,reaction_numbr,connnt_num,chaption,viwes,reaction_limite
     """
     try:
         #print(post_url
-        if int(reaction_numbr)>=int(reaction_limite) and int(connnt_num) >= int(comment_limite) and int(viwes) >= int(viwes_limite):  
+        if int(reaction_numbr)>=int(reaction_limite) and int(connnt_num) >= int(comment_limite) and int(viwes) >= int(viwes_limite):
             search_data.append({"post_url" : post_url,
         "date_of_post": date_post,
         "tweet": chaption,
@@ -185,10 +157,11 @@ def felteringx(post_url,reaction_numbr,connnt_num,chaption,viwes,reaction_limite
         "comments": connnt_num,
         "views":viwes})
     except:pass
+
 def parsing(loads_data,reaction_limite,viwes_limite,comment_limite):
     r"""
     This function parsing All data from the Responce or Inputed Text
-    """ 
+    """
     try:
         entry_id = loads_data["data"]["search_by_raw_query"]["search_timeline"]["timeline"]["instructions"][0]["entries"]
         for data in entry_id:
@@ -200,7 +173,14 @@ def parsing(loads_data,reaction_limite,viwes_limite,comment_limite):
                 viwes=data["content"]["itemContent"]["tweet_results"]["result"]["views"]["count"]
                 post_url=data["content"]["itemContent"]["tweet_results"]["result"]["legacy"]["entities"]["media"][0]["expanded_url"]
                 felteringx(post_url,reaction_numbr,connnt_num,chaption,viwes,reaction_limite,viwes_limite,comment_limite,date_post)
-            except:pass
+            except Exception as e :
+                print(data)
+                # # input()
+                # with open('parsing.json',"w",encoding="utf-8") as file:
+                #     json_data = json.dump(data ,file ,ensure_ascii=False, indent=4)
+                #     file.close()
+                # print("Parsing Exceptio",e)
+                # input()
     except:pass
 
 def loping_serch(tweet_text,cookies,reaction_limite,viwes_limite,comment_limite,nb_tweets,chatagory,headers):
@@ -212,7 +192,7 @@ def loping_serch(tweet_text,cookies,reaction_limite,viwes_limite,comment_limite,
     """
     try:
         cursor=re.findall('"TimelineTimelineCursor","value":"(.*?)","cursorType',str(tweet_text.text))[1]
-        print(cursor)
+        # print(cursor)
         params = {
         'variables': '{"rawQuery":"%s","count":50,"cursor":"%s","querySource":"recent_search_click","product":"Top"}'%(chatagory,cursor),
         'features': '{"responsive_web_graphql_exclude_directive_enabled":true,"verified_phone_label_enabled":false,"creator_subscriptions_tweet_preview_api_enabled":true,"responsive_web_graphql_timeline_navigation_enabled":true,"responsive_web_graphql_skip_user_profile_image_extensions_enabled":false,"c9s_tweet_anatomy_moderator_badge_enabled":true,"tweetypie_unmention_optimization_enabled":true,"responsive_web_edit_tweet_api_enabled":true,"graphql_is_translatable_rweb_tweet_is_translatable_enabled":true,"view_counts_everywhere_api_enabled":true,"longform_notetweets_consumption_enabled":true,"responsive_web_twitter_article_tweet_consumption_enabled":false,"tweet_awards_web_tipping_enabled":false,"freedom_of_speech_not_reach_fetch_enabled":true,"standardized_nudges_misinfo":true,"tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled":true,"rweb_video_timestamps_enabled":true,"longform_notetweets_rich_text_read_enabled":true,"longform_notetweets_inline_media_enabled":true,"responsive_web_media_download_video_enabled":false,"responsive_web_enhance_cards_enabled":false}',
@@ -226,10 +206,10 @@ def loping_serch(tweet_text,cookies,reaction_limite,viwes_limite,comment_limite,
                     return messag
                 else:
                     loping_serch(response,cookies,reaction_limite,viwes_limite,comment_limite,nb_tweets,chatagory,headers)
-            else:messag = "Done" 
+            else:messag = "Done"
         if response.status_code >=400:
                het_coookes_search(chatagory,reaction_limite,viwes_limite,comment_limite,nb_tweets)
-    except Exception as e: 
+    except Exception as e:
         het_coookes_search(chatagory,reaction_limite,viwes_limite,comment_limite,nb_tweets)
         return e
 
@@ -238,7 +218,7 @@ def het_coookes_search(chatagory,reaction_limite,viwes_limite,comment_limite,nb_
     If gets any error Change a new cookes and send all data as new on searching function
     """
     formatted_cookies = ";".join([f"{cookie['name']}={cookie['value']}" for cookie in cookes_od])
-    data_list = json.loads(file)
+    data_list = json.loads(coolies_file)
     cookes = [entry['cookes'] for entry in data_list]
     cookes.remove(formatted_cookies)
     cooki=random.choice(cookes)
@@ -273,36 +253,36 @@ def search_Top(cookies,chatagory,reaction_limite,viwes_limite,comment_limite,nb_
         return search_data
     else:
         return "Something Is Wrong Or Invaid Cookes"
-    
-
 
 
 #xx=search_Top(cookies,keywords,reaction_limite,viwes_limite,comment_limite,nb_tweets)
 # chatagory='global warming'               # keyword name wich are scraping
-nb_tweets=2                     # the number of data you want
-reaction_limite=5
-viwes_limite=5
-comment_limite=3
-keywords=["imVkohli","munawar0018"]
-type_search='profile'
+nb_tweets=15                     # the number of data you want
+reaction_limite=0
+viwes_limite=0
+comment_limite=0
+keywords=["IOCL","Electrosteel Castings", "ITC", "COAL India", "MRF"]
+type_search='topics'
 
 
 def cookes(x):
     global cookies
-    data_list = json.loads(file)
+    data_list = json.loads(coolies_file)
     cookes = [entry['cookes'] for entry in data_list]
     cooki=random.choice(cookes)
     parsed_cookies = parse_qs(cooki.replace(' ',''), separator=';')
     cookies= {key: value[0] for key, value in parsed_cookies.items()}
+
 @cookes
 def c():pass
+
 def main(type_search, keywords, reaction_limite,viwes_limite,comment_limite,nb_tweets):
     tweets = []
     for keyword in keywords:
         # try:
             if 'profile' in str(type_search).lower():
                 try:
-                    sleep(.5)
+                    sleep(0.2)
                     global lop_time
                     lop_time=0
                     tweet=screpeing_profile_post(keyword,cookies,reaction_limite,viwes_limite,comment_limite,nb_tweets)
@@ -332,9 +312,9 @@ def main(type_search, keywords, reaction_limite,viwes_limite,comment_limite,nb_t
     return tweets
 
 new_data=main(type_search, keywords, reaction_limite,viwes_limite,comment_limite,nb_tweets)
-print(new_data)
+# print(new_data)
 
-with open('data_twi.json',"w",encoding="utf-8") as file:
-        json_data = json.dump(new_data ,file ,ensure_ascii=False, indent=4)
-        file.close()
+# with open('data_twi.json',"w",encoding="utf-8") as file:
+#         json_data = json.dump(new_data ,file ,ensure_ascii=False, indent=4)
+#         file.close()
 
